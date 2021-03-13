@@ -26,7 +26,7 @@
     
     <body>
 <!--create a header-->
-        <header class="jumbotron">
+        <header class="jumbotron container-fluid text-center p-2">
 <!--Create a heading with the text weather dashboard-->
             <h1>Weather Dashboard</h1>
             <nav>
@@ -40,26 +40,38 @@
 <!--create a container for our content-->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3 pl-2">
+
+<!--create search column-->
+                <div class="col-l-3 pl-2">
+                    <div class="card" style="width: 22rem;"></div>
                     <h2>Search for a city:</h2>
+<!--create form and add input and submit button-->
+                    <form class="form-inline">
+                        <input class="form-control" type="search" aria-label="Search" placeholder="enter city name">
+                        <button id="submitted" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+
+                    <br>
+<!--create an ul-->    
+                    <ul id="cities" class="list-group"></ul>
                 </div>
-
-
+                
+<!--create right column-->
+                <div class="col-l-9">
+                    <h3 id="fiveday">5 Day Forecast</h3>
+                </div>
             </div>
         </div> 
 
-            <script src="./JS/script.js"></script>
+<!--bootstrap script-->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!--JQuery script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!--Moment script-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="./JS/script.js"></script>
     </body>
-        <!--create body
-
-
-
-left column and 
--column xl 3
-create heading
-create form- add input and submit button- add id
-create an ul
-
-right column
-add styles to the colum column xl 9-->
+       
 </html>
