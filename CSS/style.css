@@ -1,5 +1,24 @@
+:root {
+    --softpink: #D7BFBA;
+}
+
 nav a {
     padding: 14px 20px;
     text-decoration: none;
-    color: black;
+    color: whitesmoke;
 }
+
+header {
+    color: whitesmoke;
+}
+
+.jumbotron {
+    background-color: var(--softpink);
+}
+
+#submitted {
+    background-color: var(--softpink);
+    color: whitesmoke;
+}
+
+
