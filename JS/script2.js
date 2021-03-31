@@ -18,20 +18,31 @@ const forecast = document.querySelector("#forcast");
 // accept a location as a parameter
 function addToStorage (city) {
     //add the passed in parameter to existing history array
-    let history = [city]
+    var history = [];
     let city = document.querySelector("#city").value
     //update local storage- don't forget to stringfy (JSON)
     localStorage.setItem("city", JSON.stringify(city));
 }
  
-
- 
-
  // create a var for appid - 
 const appid = 'd91f911bcf2c0f925fb6535547a5ddc9';
 // variable to hold our search history !searchHistory.includes(city)
+searchHistory.includes(city);
 
 //function to add an item to searchhistory (add to history)
+function addToHistory(city) {
+   var historyEl = document.createElement('ul');
+   historyEl.classList.add('list-group', 'list-group-flush');
+   historyEl.textContent = city;
+   historyEl.append(searchHistory);
+}
+
+function appendHistory() {
+    let recentSearch = JSON.parse(localStorage.getItem("city"));
+    if(!recentSearch) {
+        return
+    }
+}
  //accept a location as a parameter
  //create an li
  //add any classes
@@ -45,6 +56,7 @@ const appid = 'd91f911bcf2c0f925fb6535547a5ddc9';
 	// add the passed in parameter to exisitingHistory array
 	// update localStorage (don't forget to stringify JSON)
 
+
 //function to get our coordinates (getcoordinates)
     //accept location as a parameter 
 // function to add an item to searchHistory (addToHistory)
@@ -55,6 +67,17 @@ const appid = 'd91f911bcf2c0f925fb6535547a5ddc9';
 	// append it to the history-list
 
 // loop through searchHistory -> call addToHistory(searchHistory[i])
+var getCoordinates = function(today) {
+    var coordinatesUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=1&appid=' + appid;
+
+    fetch (coordinatesUrl)
+        .then(function(response) {
+            return response.json()
+    })
+    .then(function(data) {
+
+    })
+}
 // function to get our coordinates (getCoordinates)
 	// accept location as a parameter
 
@@ -73,6 +96,17 @@ const appid = 'd91f911bcf2c0f925fb6535547a5ddc9';
 
 // function that gets our weather data (getWeather)
 	// accepts name, lat, lon as parameters
+    function getWeather(name, lat, lon) {
+        weatherUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat '&lon=' + lon + '&exclude=hourly,minutely,alerts&units=imperial&appid=' + appid;
+
+        fetch (weatherUrl) 
+            .then(function(response) {
+                return response.json();
+            })
+
+            .then
+        }
+    
 
 	// create url - 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat '&lon=' + lon + '&exclude=hourly,minutely,alerts&units=imperial&appid=' + appid
 
