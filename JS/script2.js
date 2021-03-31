@@ -9,12 +9,23 @@
 	get a reference to search-form, history-list, today, forecast
 */
 const searchForm = document.querySelector("#search-form");
-const searchHistory = document.querySelector()
+const searchHistory = document.querySelector("#history-list");
+const today = document.querySelector("#today");
+const forecast = document.querySelector("#forcast");
 
-// function to add location to local storage (add to storage)
- //accept a location as a parameter
- //add the passed in parameter to existinghostory arrya
- //update local storage- don't forget to stringfy (JSON)
+
+// function to add location to local storage (addToStorage)
+// accept a location as a parameter
+function addToStorage (city) {
+    //add the passed in parameter to existing history array
+    let history = [city]
+    let city = document.querySelector("#city").value
+    //update local storage- don't forget to stringfy (JSON)
+    localStorage.setItem("city", JSON.stringify(city));
+}
+ 
+
+ 
 
  // create a var for appid - 
 const appid = 'd91f911bcf2c0f925fb6535547a5ddc9';
