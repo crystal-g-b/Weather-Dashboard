@@ -49,22 +49,26 @@
                             <input id="city" class="form-control" type="search" aria-label="Search" placeholder="enter city name">
                             <button id="submitted" class="btn" type="submit"><i class="fas fa-search"></i></button>
                         </form>
-
-                    <br>
+                    
+                    
 <!--create an ul-->    
-                    <ul id="cities-list" class="list-group"></ul>
+                        <ul id="history-list" class="list-group list-group-flush"></ul>
                     </div>
                 </div>
                 
 <!--create right column-->
-                <div class="col-l-9">
-                    <h2 id="searched-city"></h2>
-                    <div id="today">
-
-                    </div>    
+            <div class="row pl-3">
+                <div class="col-l-9"
+                    <div class="card w-100">
+                        <div class="card-body">
+                            <h2 id="city-results"> 
+                                <span id="city-name"></span><span id="current-date"></span>
+                            </h2>
+                        </div>
+                    </div>  
                 </div>
-                <div class="row" id="fiveDay-forecast">
-                    <h2 class="col-12" id="forecast"></h2>
+                <div class="row pl-3" id="fiveDay-forecast">
+                    <h2 class="col-l-9" id="forecast"></h2>
                     <div class="d-flex" id="forecast-container"></div>
                 </div>
             </div>

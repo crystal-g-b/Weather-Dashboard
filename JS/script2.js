@@ -4,37 +4,29 @@
 "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
 "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon" + lon + "&appid=" + apiKey;
 "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
-
-//var appid
-//get a ref to search form, history list, todat, foreast
+ 
 /*
 	get a reference to search-form, history-list, today, forecast
 */
-var city = [];
-
-//get th ehistory from the local storage and update the search history variabe- if there are no results there should be an empty array
-var searchFormEl = document.querySelector("#search-form");
-var searchHistory = document.querySelector("#cities-list");
-var currentWeather = document.querySelector("#today");
-var currentCity = document.querySelector("#searched-city");
-var forecastHeader = document.querySelector("#forecast");
-var fiveDay = document.querySelector("#forecast-container");
+const searchForm = document.querySelector("#search-form");
+const searchHistory = document.querySelector()
 
 // function to add location to local storage (add to storage)
  //accept a location as a parameter
  //add the passed in parameter to existinghostory arrya
  //update local storage- don't forget to stringfy (JSON)
-// create a var for appid - var appid = 'd91f911bcf2c0f925fb6535547a5ddc9';
-var apiKey="b8ba7727eedeaba60b1fe7994df6a07a";
+
+ // create a var for appid - 
+const appid = 'd91f911bcf2c0f925fb6535547a5ddc9';
 // variable to hold our search history !searchHistory.includes(city)
 
 //function to add an item to searchhistory (add to history)
  //accept a location as a parameter
  //create an li
  //add any classes
- //set textcontent to walue of parameter
+ //set textcontent to value of parameter
  //append it to the history list
-// get the history from localStorage and update the searchHistory variable - if there are no results -> [] (make sure to parse JSON)
+// get the history from localStorage and update the searchHistory variable - if there are no results -> []there should be an empty array (make sure to parse JSON)
 
 //loop through searchhistory -- call t to history
 // function to add location to localStorage (addToStorage)
