@@ -1,92 +1,62 @@
 <!DOCTYPE html>
+
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" type="image/jpg" href="./IMAGES/a08374aceb4d212dde6d21dd98127cac.jpg"/>
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-            crossorigin="anonymous"
-        />
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="./CSS/style.css" />
-        <title>Weather Dashboard</title>
-    </head>
-    <!-- Use bootstraop-->
-    
-    <body>
-<!--create a header-->
-        <header class="jumbotron container-fluid text-center p-2">
-<!--Create a heading with the text weather dashboard-->
-            <h1>Weather Dashboard</h1>
-            <nav>
-                <a href="#home">Home |</a>
-                <a href="#hourly">Hourly |</a>
-                <a href="#fiveday">5 Day Forecast |</a>
-                <a href="#weekend">Weekend |</a>
-            </nav>
-        </header>
 
-<!--create a container for our content-->
-        <div class="container-fluid">
-            <div class="row">
-<!--create search column-->
-                <div class="col-l-3 pl-2">
-                    <div class="card p-2">
-                        <h2>Search for a city:</h2>
-<!--create form and add input and submit button-->
-                        <form class="form-inline" id="search-form">
-                            <input id="city" class="form-control" type="search" aria-label="Search" placeholder="enter city name">
-                            <button id="submitted" class="btn" type="submit"><i class="fas fa-search"></i></button>
-                        </form>
-                    
-                    
-<!--create an ul-->    
-                        <ul id="history-list" class="list-group list-group-flush"></ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/jpg" href="./IMAGES/a08374aceb4d212dde6d21dd98127cac.jpg"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <header class="jumbotron container-fluid text-center p-2 " style="background-color: #D7BFBA; color: whitesmoke;"> 
+        <h1>Weather Dashboard</h1>
+        <nav style="color: whitesmoke;">
+        <a href="#home">Home |</a>
+        <a href="#hourly">Hourly |</a>
+        <a href="#fiveday">5 Day Forecast |</a>
+        <a href="#weekend">Weekend |</a>
+        </nav>
+    </header>
+
+    <!-- Main container for webpage content -->
+    <div id="content" class="container">
+        <div class="row">
+
+            <div id="content-left" class="col-md-3">
+                <form>
+                    <label for="search-city">Search for a City:</label>
+                    <div class="form-row">
+                        <input id="search-city" class="form-control" name="city" value="Austin"></input>
+                        <button id="search-button" class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                     </div>
-                </div>
-                
-<!--create right column-->
-            <div class="row pl-3" id="today">
-                <div class="col-l-9"
-                    <div class="card w-100">
-                        <div class="card-body">
-                            <h2 id="city-results"> 
-                                <span id="city-name"></span><span id="current-date"></span>
-                            </h2>
-                            <p>Temperature:<span id="temp"></span></p>
-                            <p>Humidity:<span id="hum"></span></p>
-                            <p>Wind:<span id="wind"></span></p>
-                            <p>UV Index:<span id="uv"></span></p>
-                        </div>
-                    </div>  
-                </div>
-                <div class="row pl-3" id="forecast">
-                    <h2 class="col-l-9 pl-3"></h2>
-                    <div class="d-flex" id="forecast-container"></div>
-                </div>
+                </form>
+                <div id="search-error"></div>
+
+                <ul id="city-results" class="list-group mt-4" style="background-color: var(--softpink); color: whitesmoke; border-color: var(--softpink);"></ul>
+
+                <a id="clear-storage" href="#"></a>    
             </div>
-        </div> 
 
-<!--bootstrap script-->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <!-- Right side content showing current weather and five day forecast displays on search -->
+            <div id="content-right" class="col-md-9 pt-4">
+                
+                <div id="current-weather" class="border rounded"></div>
+               
+                <div id="five-day-forecast" class="mt-5"></div>
+            </div>
+        </div>
+    </div>
 
-<!--JQuery script-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!--Moment script-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-        <script src="./JS/script2.js"></script>
-    </body>
-       
+   
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
 </html>
